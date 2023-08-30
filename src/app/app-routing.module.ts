@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { NopagefoundComponent } from './admin/pages/nopagefound/nopagefound.component';
+import { NopagefoundComponent } from './nopagefound/nopagefound.component';
 
 const routes: Routes = [
   {
@@ -9,8 +9,13 @@ const routes: Routes = [
 
   },
   {
-    path: 'dashboard',
+    path: '',
     loadChildren: () => import('./admin/admin.module').then((m) => m.AdminModule)
+  },
+  {
+    path: '',
+    redirectTo: '/dashboard',
+    pathMatch: 'full'
   },
   {
     path: '**',
