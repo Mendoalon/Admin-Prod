@@ -9,10 +9,11 @@ const routes: Routes = [
   {
     path: '',
     component: AuthLayoutComponent,
-    children:[
-      {path: 'login', component: LoginComponent},
-      {path: 'register', component: RegisterComponent},
-      {path: '**',component: NopagefoundComponent},
+    children: [
+      { path: '', redirectTo: 'login', pathMatch: 'full' }, // Redirige a 'login'
+      { path: 'login', component: LoginComponent },
+      { path: 'register', component: RegisterComponent },
+      { path: '**', component: NopagefoundComponent },
 
     ]
   }

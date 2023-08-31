@@ -12,6 +12,7 @@ import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { ProgressComponent } from './pages/progress/progress.component';
 import { Grafica1Component } from './pages/grafica1/grafica1.component';
 import { AdminLayoutComponent } from './layout/admin-layout/admin-layout.component';
+import { AccountSettingsComponent } from './pages/account-settings/account-settings.component';
 
 
 
@@ -22,7 +23,8 @@ import { AdminLayoutComponent } from './layout/admin-layout/admin-layout.compone
     DashboardComponent,
     ProgressComponent,
     Grafica1Component,
-    AdminLayoutComponent
+    AdminLayoutComponent,
+    AccountSettingsComponent
   ],
   imports: [
     CommonModule,
