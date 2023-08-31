@@ -13,6 +13,8 @@ import { ProgressComponent } from './pages/progress/progress.component';
 import { Grafica1Component } from './pages/grafica1/grafica1.component';
 import { AdminLayoutComponent } from './layout/admin-layout/admin-layout.component';
 import { AccountSettingsComponent } from './pages/account-settings/account-settings.component';
+import { PromiseComponent } from './pages/promise/promise.component';
+import { RxjsComponent } from './pages/rxjs/rxjs.component';
 
 
 
@@ -24,7 +26,9 @@ import { AccountSettingsComponent } from './pages/account-settings/account-setti
     ProgressComponent,
     Grafica1Component,
     AdminLayoutComponent,
-    AccountSettingsComponent
+    AccountSettingsComponent,
+    PromiseComponent,
+    RxjsComponent
   ],
   imports: [
     CommonModule,
