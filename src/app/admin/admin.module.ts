@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { AdminRoutingModule } from './admin-routing.module';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 //Modulos
 import { SharedModule } from '../shared/shared.module';
@@ -15,6 +15,7 @@ import { AdminLayoutComponent } from './layout/admin-layout/admin-layout.compone
 import { AccountSettingsComponent } from './pages/account-settings/account-settings.component';
 import { PromiseComponent } from './pages/promise/promise.component';
 import { RxjsComponent } from './pages/rxjs/rxjs.component';
+import { PerfilComponent } from './pages/perfil/perfil.component';
 
 
 
@@ -28,12 +29,14 @@ import { RxjsComponent } from './pages/rxjs/rxjs.component';
     AdminLayoutComponent,
     AccountSettingsComponent,
     PromiseComponent,
-    RxjsComponent
+    RxjsComponent,
+    PerfilComponent
   ],
   imports: [
     CommonModule,
     AdminRoutingModule,
     FormsModule,
+    ReactiveFormsModule,
     ComponentsModule,
     SharedModule
   ]

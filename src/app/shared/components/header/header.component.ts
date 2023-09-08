@@ -1,5 +1,7 @@
+import { AuthService } from './../../../auth/services/auth.service';
 import { AuthAdminService } from './../../../admin/services/auth-admin.service';
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { Usuario } from 'src/app/interfaces/usuario.intefaces';
 
 @Component({
   selector: 'app-header',
@@ -7,12 +9,19 @@ import { Component } from '@angular/core';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent {
-  constructor( private AuthAdminService: AuthAdminService){
 
+  public usuario: Usuario;
+
+  constructor(private authAdminService: AuthAdminService,
+    private authService: AuthService
+  ) {
+    this.usuario = authService.usuario;
   }
 
   logout(): void {
-    this.AuthAdminService.logout();
+    this.authAdminService.logout();
   }
 
+
 }
+
