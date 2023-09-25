@@ -16,6 +16,8 @@ import { AccountSettingsComponent } from './pages/account-settings/account-setti
 import { PromiseComponent } from './pages/promise/promise.component';
 import { RxjsComponent } from './pages/rxjs/rxjs.component';
 import { PerfilComponent } from './pages/perfil/perfil.component';
+import { UsuariosComponent } from './pages/mantenimientos/usuarios/usuarios.component';
+import { ModalImagenComponent } from './components/modal-imagen/modal-imagen.component';
 
 
 
@@ -30,7 +32,9 @@ import { PerfilComponent } from './pages/perfil/perfil.component';
     AccountSettingsComponent,
     PromiseComponent,
     RxjsComponent,
-    PerfilComponent
+    PerfilComponent,
+    UsuariosComponent,
+    ModalImagenComponent
   ],
   imports: [
     CommonModule,
