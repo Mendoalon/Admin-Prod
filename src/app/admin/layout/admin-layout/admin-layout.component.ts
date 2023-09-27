@@ -8,10 +8,13 @@ declare function customInitFunctions(): void;;
   templateUrl: './admin-layout.component.html'
 })
 export class AdminLayoutComponent implements OnInit {
+  public fechaActual: number = new Date().getFullYear();
+
   constructor(private settingsService: SettingsService) { }
 
   ngOnInit(): void {
     customInitFunctions();
+
   }
 
 

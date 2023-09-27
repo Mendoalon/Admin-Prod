@@ -18,6 +18,10 @@ import { RxjsComponent } from './pages/rxjs/rxjs.component';
 import { PerfilComponent } from './pages/perfil/perfil.component';
 import { UsuariosComponent } from './pages/mantenimientos/usuarios/usuarios.component';
 import { ModalImagenComponent } from './components/modal-imagen/modal-imagen.component';
+import { HospitalesComponent } from './pages/mantenimientos/hospitales/hospitales.component';
+import { MedicosComponent } from './pages/mantenimientos/medicos/medicos.component';
+import { ImagenPipe } from './pipes/imagen.pipe';
+import { MedicoComponent } from './pages/mantenimientos/medicos/medico/medico.component';
 
 
 
@@ -34,7 +38,11 @@ import { ModalImagenComponent } from './components/modal-imagen/modal-imagen.com
     RxjsComponent,
     PerfilComponent,
     UsuariosComponent,
-    ModalImagenComponent
+    ModalImagenComponent,
+    HospitalesComponent,
+    MedicosComponent,
+    ImagenPipe,
+    MedicoComponent
   ],
   imports: [
     CommonModule,

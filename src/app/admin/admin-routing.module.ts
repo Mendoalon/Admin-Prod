@@ -12,6 +12,9 @@ import { PromiseComponent } from './pages/promise/promise.component';
 import { RxjsComponent } from './pages/rxjs/rxjs.component';
 import { PerfilComponent } from './pages/perfil/perfil.component';
 import { UsuariosComponent } from './pages/mantenimientos/usuarios/usuarios.component';
+import { MedicosComponent } from './pages/mantenimientos/medicos/medicos.component';
+import { HospitalesComponent } from './pages/mantenimientos/hospitales/hospitales.component';
+import { MedicoComponent } from './pages/mantenimientos/medicos/medico/medico.component';
 
 const routes: Routes = [
   {
@@ -29,7 +32,9 @@ const routes: Routes = [
 
       //Mantenimientos.
       {path: 'usuarios', component: UsuariosComponent, data: {titulo: 'Usuarios de aplicacion'} },
-
+      {path: 'hospitales', component: HospitalesComponent , data: {titulo: 'Hosptales de aplicacion'} },
+      {path: 'medicos', component: MedicosComponent, data: {titulo: 'Medicos de aplicacion'} },
+      {path: 'medico/:id', component: MedicoComponent, data: {titulo: 'Informacion medico'} },
     ]
   },
 ];

@@ -1,8 +1,10 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
-import { map } from 'rxjs';
+import { Observable, map } from 'rxjs';
 import { Usuario } from 'src/app/interfaces/usuario.intefaces';
+import { Hospital } from 'src/app/interfaces/hospital.intefaces';
+import { Medico } from 'src/app/interfaces/medico.interfaces';
 
 @Injectable({
   providedIn: 'root'
@@ -24,7 +26,7 @@ export class BusquedasService {
     }
   }
 
-  private transformarUusarios(resultados: any): Usuario[] {
+  private transformarUsuarios(resultados: any[]): Usuario[] {
 
     return resultados.map(
       (user: any) => new Usuario(user.nombre, user.email, '', user.img, user.google, user.role, user.uid)
@@ -32,28 +34,40 @@ export class BusquedasService {
 
   }
 
+  private transformarHospitales(resultados: any[]): Hospital[] {
+    return resultados
+  }
+
+  private transformarMedicos(resultados: any[]): Medico[] {
+    return resultados
+  }
+
   buscar(
     tipo: 'usuarios' | 'medicos' | 'hospitales',
     termino: string
-  ) {
+  ): Observable<any> {
+    const url = `${this.base_url}/todo/coleccion/${tipo}/${termino}`;
+    return this.http.get<any[]>(url, this.headers).pipe(
+      map((resp: any) => {
+        switch (tipo) {
+          case 'usuarios':
+            return this.transformarUsuarios(resp.resultados);
+            break;
 
-    const url = `${this.base_url}/todo/coleccion/${tipo}/${termino}`
+          case 'hospitales':
+            return this.transformarHospitales(resp.resultados);
+            break;
 
-    return this.http.get<any[]>(url, this.headers)
-      .pipe(
-        map((resp: any) => {
+          case 'medicos':
+            return this.transformarMedicos(resp.resultados);
+            break;
 
-          switch (tipo) {
-            case 'usuarios':
-              return this.transformarUusarios(resp.resultados);
-              break;
-
-            default:
-              return [];
-          }
-
-        })
-      )
+          default:
+            return [];
+        }
+      })
+    );
   }
+
 
 }
