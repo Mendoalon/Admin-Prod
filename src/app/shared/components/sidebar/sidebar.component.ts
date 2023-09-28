@@ -10,13 +10,12 @@ import { Usuario } from 'src/app/interfaces/usuario.intefaces';
 })
 export class SidebarComponent {
   public usuario: Usuario;
-  menuItem: any[];
 
   constructor(
-    private sidebarService: SidebarService,
+    public sidebarService: SidebarService,
     private authService: AuthService
   ) {
-    this.menuItem = this.sidebarService.menu;
+
     this.usuario = authService.usuario;
   }
 

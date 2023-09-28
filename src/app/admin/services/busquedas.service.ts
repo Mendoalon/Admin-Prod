@@ -42,31 +42,39 @@ export class BusquedasService {
     return resultados
   }
 
+  busquedaBlobal(termino: string) {
+
+    const url = `${this.base_url}/todo/${termino}`;
+    return this.http.get(url, this.headers);
+  }
+
+
   buscar(
     tipo: 'usuarios' | 'medicos' | 'hospitales',
     termino: string
   ): Observable<any> {
     const url = `${this.base_url}/todo/coleccion/${tipo}/${termino}`;
-    return this.http.get<any[]>(url, this.headers).pipe(
-      map((resp: any) => {
-        switch (tipo) {
-          case 'usuarios':
-            return this.transformarUsuarios(resp.resultados);
-            break;
+    return this.http.get<any[]>(url, this.headers)
+      .pipe(
+        map((resp: any) => {
+          switch (tipo) {
+            case 'usuarios':
+              return this.transformarUsuarios(resp.resultados);
+              break;
 
-          case 'hospitales':
-            return this.transformarHospitales(resp.resultados);
-            break;
+            case 'hospitales':
+              return this.transformarHospitales(resp.resultados);
+              break;
 
-          case 'medicos':
-            return this.transformarMedicos(resp.resultados);
-            break;
+            case 'medicos':
+              return this.transformarMedicos(resp.resultados);
+              break;
 
-          default:
-            return [];
-        }
-      })
-    );
+            default:
+              return [];
+          }
+        })
+      );
   }
 
 

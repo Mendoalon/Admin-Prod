@@ -22,6 +22,7 @@ import { HospitalesComponent } from './pages/mantenimientos/hospitales/hospitale
 import { MedicosComponent } from './pages/mantenimientos/medicos/medicos.component';
 import { ImagenPipe } from './pipes/imagen.pipe';
 import { MedicoComponent } from './pages/mantenimientos/medicos/medico/medico.component';
+import { BusquedaComponent } from './pages/busqueda/busqueda.component';
 
 
 
@@ -42,7 +43,8 @@ import { MedicoComponent } from './pages/mantenimientos/medicos/medico/medico.co
     HospitalesComponent,
     MedicosComponent,
     ImagenPipe,
-    MedicoComponent
+    MedicoComponent,
+    BusquedaComponent
   ],
   imports: [
     CommonModule,

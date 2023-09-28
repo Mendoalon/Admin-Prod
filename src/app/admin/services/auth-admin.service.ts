@@ -22,6 +22,7 @@ export class AuthAdminService {
     private authService: AuthService,
   ) { }
 
+
   get token(): string {
     return localStorage.getItem('token') || '';
   }
@@ -41,6 +42,8 @@ export class AuthAdminService {
 
   logout(): any {
     localStorage.removeItem('token');
+    localStorage.removeItem('menu');
+
 
     google.accounts.id.revoke('luis.mendoza0321@gmail.com', () => {
       this.router.navigateByUrl('auth/login');

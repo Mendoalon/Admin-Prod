@@ -18,6 +18,11 @@ export class AuthService {
 
   constructor(private http: HttpClient) { }
 
+
+  get role(): 'ADMIN_ROLE' | 'USER_ROLE' {
+    return this.usuario.role || 'USER_ROLE';
+  }
+
   obtenerImagen(): Observable<any> {
     const token = localStorage.getItem('token') || '';
 
@@ -43,13 +48,17 @@ export class AuthService {
     );
   }
 
+  guardarLocalStorage(token: string, menu: any): void {
+    localStorage.setItem('token', token);
+    localStorage.setItem('menu', JSON.stringify(menu) );
+  }
 
   crearUsuario(formData: RegisterForm): Observable<any> {
 
     return this.http.post(`${this.base_url}/usuarios`, formData)
       .pipe(
         tap((resp: any) => {
-          localStorage.setItem('token', resp.token)
+          this.guardarLocalStorage(resp.token, resp.menu);
         })
       )
 
@@ -60,7 +69,7 @@ export class AuthService {
     return this.http.post(`${this.base_url}/login`, formData)
       .pipe(
         tap((resp: any) => {
-          localStorage.setItem('token', resp.token)
+          this.guardarLocalStorage(resp.token, resp.menu);
         })
       )
   }
@@ -69,7 +78,7 @@ export class AuthService {
     return this.http.post(`${this.base_url}/login/google`, { token })
       .pipe(
         tap((resp: any) => {
-          localStorage.setItem('token', resp.token)
+          this.guardarLocalStorage(resp.token, resp.menu);
         })
       )
   }
@@ -85,7 +94,7 @@ export class AuthService {
       map((resp: any) => {
         const { email, google, nombre, role, img, uid } = resp.usuario;
         this.usuario = new Usuario(nombre, email, '', img, google, role, uid);
-        localStorage.setItem('token', resp.token);
+        this.guardarLocalStorage(resp.token, resp.menu);
         return true;
       }),
 
